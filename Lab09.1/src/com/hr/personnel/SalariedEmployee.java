@@ -4,6 +4,8 @@ import gov.irs.TaxPayer;
 import java.time.LocalDate;
 
 public class SalariedEmployee extends Employee {
+    public static final double STANDARD_DEDUCTION = 10_000.0;
+
     private double salary;
 
     public SalariedEmployee() {
@@ -26,10 +28,15 @@ public class SalariedEmployee extends Employee {
         System.out.println(getName() + " is paid salary " + getSalary());
     }
 
-    @Override  // interface TaxPayer
+    @Override  // interface TaxPayer - abstract method - I MUST implement it myself
     public void payTaxes() {
         double taxes = getSalary() * SALARIED_TAX_RATE;
         System.out.printf("%s paid salary taxes of %s\n", getName(), taxes);
+    }
+
+    @Override  // interface TaxPayer - default method - I OPT to override it
+    public double getStandardDeduction() {
+        return STANDARD_DEDUCTION;
     }
 
     public void takeVacation() {
