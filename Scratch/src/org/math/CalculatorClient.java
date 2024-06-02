@@ -1,5 +1,8 @@
 package org.math;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class CalculatorClient {
 
     public static void main(String[] args) {
@@ -18,5 +21,13 @@ class CalculatorClient {
 
         double avg = Calculator.average(3, 5, 10, 13);  // should be 7.75
         System.out.println("The average is: " + avg);
+        System.out.println();
+
+        List<Integer> inputs = new ArrayList<>();
+        inputs.add(5);
+        inputs.add(7);
+        inputs.add(1);
+        int smallest = Calculator.findMin(inputs);
+        System.out.println("The smallest is: " + smallest);  // should be 1
     }
 }

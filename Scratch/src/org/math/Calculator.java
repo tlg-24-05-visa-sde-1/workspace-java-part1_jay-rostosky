@@ -1,10 +1,27 @@
 package org.math;
 
+import java.util.Collection;
+import java.util.List;
+
 /*
  * This is an "all-static" class, i.e., one with nothing but static methods.
  * These methods are called from clients as Calculator.add(), Calculator.subtract(), etc.
  */
 class Calculator {
+
+    public static int findMin(List<Integer> values) {
+        // pretend it was 5, 7, 1
+
+        int smallest = values.get(0);  // 5
+
+        for (Integer value : values) {
+            if (value < smallest) {
+                smallest = value;
+            }
+        }
+
+        return smallest;
+    }
 
     /*
      * Returns the average of the supplied integers.
