@@ -50,7 +50,7 @@ public class InMemoryCatalog implements Catalog {
         MusicItem item = null;
 
         for (MusicItem currentItem : catalogData) {
-            if (currentItem.getId().equals(id)) {
+            if (currentItem.getId().equals(id)) {  // don't compare Long objects with ==
                 item = currentItem;
                 break;
             }
@@ -83,7 +83,7 @@ public class InMemoryCatalog implements Catalog {
         Collection<MusicItem> result = new ArrayList<>();
 
         for (MusicItem item : catalogData) {
-            if (item.getMusicCategory().equals(category)) {
+            if (item.getMusicCategory() == category) {  // == is okay for enum types
                 result.add(item);
             }
         }
